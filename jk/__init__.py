@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+"""JK library
+
+Library containing useful functions for manipulating iterables.
+
+Inspiration was drawn from Python itertools' recipes and Ruby's Enumerable API.
+"""
 
 __author__ = 'Elias Dorneles'
 __email__ = 'eliasdorneles@gmail.com'
