@@ -6,10 +6,18 @@ __version__ = '0.1.0'
 
 
 from itertools import islice, tee
+
 try:
     from itertools import izip as zip
 except ImportError:
     pass
+
+try:
+    string_type = basestring
+except NameError:
+    string_type = str
+
+import re
 
 
 def each_cons(sequence, size):
@@ -26,6 +34,11 @@ def slice_before(predicate, iterable):
     """Returns groups of elements from iterable,
     slicing just before predicate(elem) is True
     """
+    if isinstance(predicate, string_type):
+        predicate = re.compile(predicate)
+
+    if hasattr(predicate, 'match'):
+        predicate = predicate.match
 
     record = []
 
@@ -48,7 +61,6 @@ def slice_after(predicate, iterable):
     """Returns groups of elements from iterable,
     slicing just after predicate(elem) is True
     """
-
     record = []
     for i, item in enumerate(iterable):
         record.append(item)

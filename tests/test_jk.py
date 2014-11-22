@@ -11,6 +11,7 @@ Tests for `jk` module.
 import unittest
 
 import jk
+import re
 
 
 def simple_gen():
@@ -61,6 +62,30 @@ class TestJk(unittest.TestCase):
         # then:
         self.assertEquals(
             [(111, 2, 3), (111, 4, 5, 6, 7), (111,)],
+            list(result)
+        )
+
+    def test_slice_before_with_string_pattern_predicate(self):
+        # setup:
+        text_lines = """one
+        two
+        three
+        START: four
+        five
+        START: six
+        START: seven""".split('\n')
+
+        # when:
+        result = jk.slice_before('^START:', (l.strip() for l in text_lines))
+
+        # then:
+        self.assertEquals(
+            [
+                ('one', 'two', 'three'),
+                ('START: four', 'five'),
+                ('START: six',),
+                ('START: seven',),
+            ],
             list(result)
         )
 
