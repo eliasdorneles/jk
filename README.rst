@@ -81,7 +81,7 @@ sliced just before (or after) the predicate evaluates to True.
 The predicate argument can also be a string or a regular expression pattern
 to be matched against the sequence elements.
 
-Examples::
+Examples:
 
 Grouping numbers until reaching zero::
 

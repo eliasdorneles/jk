@@ -1,4 +1,5 @@
 .PHONY: clean-pyc clean-build docs clean
+SHELL := /bin/bash
 OPEN=xdg-open
 
 help:
