@@ -14,6 +14,10 @@ JK python library
 
 Library containing useful functions for manipulating iterables.
 
+.. note::
+   This code is deprecated, don't use it!
+   Use `toolz.itertoolz <http://toolz.readthedocs.org/en/latest/_modules/toolz/itertoolz.html>`_ instead.
+
 Inspiration was drawn from Python itertools' recipes and Ruby's Enumerable API.
 
 Works on Python 2.6+ and 3.x.
